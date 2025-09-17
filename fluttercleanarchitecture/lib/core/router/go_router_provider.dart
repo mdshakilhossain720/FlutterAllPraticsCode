@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttercleanarchitecture/core/router/go_router.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/presentation/screen/home_screen.dart';
+import '../../features/login/presentation /screen/login_screen.dart';
 import '../../features/sign_up/presentation/screen/signup_screen.dart';
 
 final goRouterProvider = Provider<GoRouter>(
