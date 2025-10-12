@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.9.0"
+  dio_http_formatter:
+    dependency: "direct main"
+    description:
+      name: dio_http_formatter
+      sha256: "05e3f7c839f291acc9bd1df33d5314905da677375007d71437914ed66c8823be"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.1"
   dio_web_adapter:
     dependency: transitive
     description:
@@ -224,6 +232,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+  logger:
+    dependency: transitive
+    description:
+      name: logger
+      sha256: a7967e31b703831a893bbc3c3dd11db08126fe5f369b5c648a36f821979f5be3
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.2"
   logging:
     dependency: transitive
     description:
