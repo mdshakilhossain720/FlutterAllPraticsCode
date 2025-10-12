@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:notifaction/home_screen.dart';
-
+import 'package:notifaction/notifaction_services.dart';
 
 @pragma('vm:entry-point')
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -13,6 +13,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  // এখানে token print করবে
+  NotificationServices notificationServices = NotificationServices();
+  String token = await notificationServices.getDeviceToken();
+  print('🔑 Device Token: $token');
   runApp(const MyApp());
 }
 
