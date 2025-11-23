@@ -1,5 +1,9 @@
-import 'package:rentalmanagement/core/core.dart';
-import 'package:rentalmanagement/core/theme/theme_extensions.dart';
+
+
+import 'package:cleanarchitectureflutter/src/core/utils/theme_extension.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomDynamicDropdownField<T> extends StatelessWidget {
   final String? label;
