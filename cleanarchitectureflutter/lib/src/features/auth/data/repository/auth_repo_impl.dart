@@ -1,4 +1,6 @@
 
+import 'package:dartz/dartz.dart';
+
 import '../../../../core/errors/ exceptions.dart';
 import '../../../../core/errors/failures.dart';
 import '../../domain/entities/user_entity.dart';
