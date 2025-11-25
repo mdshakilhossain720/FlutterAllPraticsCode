@@ -19,8 +19,8 @@ class MyApp extends ConsumerWidget {
     context.setStatusBarTheme();
     final themeMode = ref.watch(themeModeProvider);
     debugPrint('Current ThemeMode: $themeMode');
-    final localeCode = ref.watch(languageProvider);
-    debugPrint('Current Locale: $localeCode');
+   // final localeCode = ref.watch(languageProvider);
+    //debugPrint('Current Locale: $localeCode');
 
     return ScreenUtilInit(
       designSize: const Size(375, 812),
@@ -35,14 +35,14 @@ class MyApp extends ConsumerWidget {
           darkTheme: AppTheme.dark,
           themeMode: themeMode,
           routerConfig: AppRouter.router,
-          locale: Locale(localeCode),
-          localizationsDelegates: [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
+         // locale: Locale(localeCode),
+          // localizationsDelegates: [
+          //   S.delegate,
+          //   GlobalMaterialLocalizations.delegate,
+          //   GlobalWidgetsLocalizations.delegate,
+          //   GlobalCupertinoLocalizations.delegate,
+          // ],
+          //supportedLocales: S.delegate.supportedLocales,
           builder: (context, child) {
             final connectivityAsyncValue = ref.watch(connectivityProvider);
             return connectivityAsyncValue.when(

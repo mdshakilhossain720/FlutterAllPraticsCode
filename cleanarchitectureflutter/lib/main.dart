@@ -6,7 +6,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'my_app.dart';
 import 'src/core/constants/app_constants.dart';
+import 'src/core/notifactions/notification_handler.dart';
 
 @pragma('vm:entry-point')
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -18,8 +20,8 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
-  NotificationServices notificationServices = NotificationServices();
-  String? token = await notificationServices.getDeviceToken();
+ NotificationServices notificationServices = NotificationServices();
+ String? token = await notificationServices.getDeviceToken();
   debugPrint('Token: $token');
   await Hive.initFlutter();
   await Hive.openBox(AppConstants.authBox);

@@ -17,7 +17,7 @@ class OfflineScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Assets.pngs.noInternetConnection.image(),
+             // Assets.pngs.noInternetConnection.image(),
               const SizedBox(height: 40),
               Text(
                 "Whoops!",
