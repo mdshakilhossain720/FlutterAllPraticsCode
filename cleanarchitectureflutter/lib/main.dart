@@ -1,8 +1,6 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -20,8 +18,8 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
- NotificationServices notificationServices = NotificationServices();
- String? token = await notificationServices.getDeviceToken();
+  NotificationServices notificationServices = NotificationServices();
+  String? token = await notificationServices.getDeviceToken();
   debugPrint('Token: $token');
   await Hive.initFlutter();
   await Hive.openBox(AppConstants.authBox);
@@ -30,5 +28,3 @@ void main() async {
 
   runApp(const ProviderScope(child: MyApp()));
 }
-
-
