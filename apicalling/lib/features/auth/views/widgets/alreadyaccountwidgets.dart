@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rentalmanagement/core/utils/theme_extension.dart';
+
 
 import '../../../../core/constants/app_colors.dart';
 import '../sign_up_screen.dart';
@@ -23,7 +23,7 @@ class AlreadyHaveAccountWidget extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: title,
-        style: context.textTheme.bodyMedium?.copyWith(
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: AppColors.gray,
           fontSize: 16.sp,
         ),

@@ -1,6 +1,7 @@
+import 'package:apicalling/core/constants/app_colors.dart';
+import 'package:apicalling/core/widgets/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
-import 'package:rentalmanagement/core/widgets/buttons/custom_button.dart';
+
 
 Future<void> showLogoutDialog({
   required BuildContext context,

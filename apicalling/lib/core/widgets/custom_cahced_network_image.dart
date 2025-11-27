@@ -1,7 +1,8 @@
+import 'package:apicalling/core/constants/app_colors.dart';
+import 'package:apicalling/core/widgets/custom_shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
-import 'package:rentalmanagement/core/widgets/custom_shimmer.dart';
+
 
 class CustomCachedNetworkImage extends StatelessWidget {
   final String imageUrl;

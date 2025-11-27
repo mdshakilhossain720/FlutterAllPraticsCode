@@ -1,5 +1,8 @@
+import 'package:apicalling/core/core.dart';
 import 'package:flutter/foundation.dart';
-import 'package:rentalmanagement/core/core.dart';
+
+import '../navigation/app_route.dart';
+
 
 class GlobalFunction {
   GlobalFunction._();

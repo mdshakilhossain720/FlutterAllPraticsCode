@@ -1,9 +1,9 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:rentalmanagement/core/constants/app_constants.dart';
-import 'package:rentalmanagement/features/auth/models/user_model.dart';
-import 'package:rentalmanagement/features/master/models/master_model/data.dart';
+
+import '../../features/auth/models/user_model.dart';
+import '../constants/app_constants.dart';
 
 class HiveService {
   final Ref ref;
@@ -67,31 +67,12 @@ class HiveService {
   }
 
   // Save master data
-  Future<void> saveMasterData(MasterModel master) async {
-    final box = Hive.box(AppConstants.appSettingsBox);
-    await box.put(AppConstants.masterKey, master.toMap());
-    debugPrint('Master data saved locally');
-  }
 
-  // Get master data
-  Future<MasterModel?> getMasterData() async {
-    final box = Hive.box(AppConstants.appSettingsBox);
-    final data = box.get(AppConstants.masterKey);
-    if (data != null && data is Map) {
-      return MasterModel.fromMap(data.cast<String, dynamic>());
-    }
-    return null;
-  }
 
-  // Synchronous getter for master data
-  MasterModel? get getMasterDataSynch {
-    final box = Hive.box(AppConstants.appSettingsBox);
-    final data = box.get(AppConstants.masterKey);
-    if (data != null && data is Map) {
-      return MasterModel.fromMap(data.cast<String, dynamic>());
-    }
-    return null;
-  }
+
+
+
+
 
   // Save selected language
   Future<void> saveSelectedLanguage(String language) async {

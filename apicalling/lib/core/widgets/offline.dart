@@ -1,9 +1,8 @@
+import 'package:apicalling/core/utils/theme_extension.dart';
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rentalmanagement/core/theme/theme_extensions.dart';
 
-import '../../gen/assets.gen.dart';
 import '../constants/app_colors.dart';
 
 class OfflineScreen extends StatelessWidget {
@@ -18,7 +17,7 @@ class OfflineScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Assets.pngs.noInternetConnection.image(),
+              //Assets.pngs.noInternetConnection.image(),
               const SizedBox(height: 40),
               Text(
                 "Whoops!",

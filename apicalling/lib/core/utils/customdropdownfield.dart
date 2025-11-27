@@ -1,5 +1,11 @@
-import 'package:rentalmanagement/core/core.dart';
-import 'package:rentalmanagement/core/theme/theme_extensions.dart';
+
+import 'package:apicalling/core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../constants/app_colors.dart';
+import '../theme/theme_extensions.dart';
+import 'theme_extension.dart';
 
 class CustomDropdownField extends StatelessWidget {
   final String? label;
@@ -35,11 +41,11 @@ class CustomDropdownField extends StatelessWidget {
           width: 16,
         ),
         initialValue: value,
-        style: context.textTheme.titleSmall!.copyWith(fontSize: 12.0.sp),
+       // style: context.textTheme.titleSmall!.copyWith(fontSize: 12.0.sp),
         decoration: InputDecoration(
           labelText: label,
           hintText: hint,
-          hintStyle: context.textTheme.bodySmall,
+         // hintStyle: context.textTheme.bodySmall,
           prefixIcon: icon != null ? Icon(icon) : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),

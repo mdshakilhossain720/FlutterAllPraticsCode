@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-import 'package:rentalmanagement/features/auth/models/tenant_model.dart';
+import 'tenant_model.dart';
+
+
 
 class UserModel {
   int? id;

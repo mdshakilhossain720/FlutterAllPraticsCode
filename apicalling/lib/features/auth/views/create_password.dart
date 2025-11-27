@@ -1,16 +1,17 @@
+import 'package:apicalling/core/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rentalmanagement/core/utils/global_function.dart';
-import 'package:rentalmanagement/core/utils/validators.dart';
-import 'package:rentalmanagement/core/widgets/buttons/custom_button.dart';
-import 'package:rentalmanagement/core/widgets/custom_textfield.dart';
+
 
 import '../../../core/navigation/app_route.dart';
+import '../../../core/utils/global_function.dart';
+import '../../../core/widgets/buttons/custom_button.dart';
 import '../../../core/widgets/custom_loader_widget.dart';
+import '../../../core/widgets/custom_textfield.dart';
 import '../controllers/auth_provider.dart';
 
 class CreatePasswordScreen extends ConsumerStatefulWidget {

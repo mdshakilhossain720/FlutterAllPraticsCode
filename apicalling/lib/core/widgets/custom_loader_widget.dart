@@ -1,5 +1,6 @@
+import 'package:apicalling/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
+
 
 class CustomLoaderWidget extends StatelessWidget {
   const CustomLoaderWidget({super.key});

@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/legacy.dart';
-import 'package:rentalmanagement/core/services/hive_service.dart';
+
+import '../services/hive_service.dart';
+
 
 class LanguageNotifier extends StateNotifier<String> {
   final HiveService hiveService;

@@ -1,16 +1,15 @@
+import 'package:apicalling/core/widgets/app_bar/app_bar_widget.dart';
+import 'package:apicalling/core/widgets/buttons/custom_button.dart';
+import 'package:apicalling/core/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rentalmanagement/core/utils/extensions/localization_extension.dart';
-import 'package:rentalmanagement/core/widgets/app_bar/app_bar_widget.dart';
-import 'package:rentalmanagement/core/widgets/buttons/custom_button.dart';
-import 'package:rentalmanagement/core/widgets/custom_textfield.dart';
-import 'package:rentalmanagement/core/widgets/logo/app_logo_widget.dart';
 
 import '../../../core/navigation/app_route.dart';
 import '../../../core/widgets/custom_loader_widget.dart';
+import '../../../core/widgets/logo/app_logo_widget.dart';
 import '../controllers/auth_provider.dart';
 
 class ForgotPasswordScreen extends ConsumerStatefulWidget {
@@ -37,7 +36,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
   Widget build(BuildContext context) {
     final forgetPassword = ref.watch(forgetPasswordStateProvider);
     return Scaffold(
-      appBar: AppBarWidget(title: context.l10n.recoverPasswordTitle),
+      appBar: AppBarWidget(title: 'Recover Password'),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 20, left: 16, right: 16),
@@ -49,23 +48,23 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Gap(60.h),
-                  AppLogoWidget(width: 220),
+                 // AppLogoWidget(width: 220),
 
                   Gap(24.h),
                   Text(
-                    context.l10n.resetPasswordTitle,
+                    'Reset Password',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   Gap(8.h),
                   Text(
-                    context.l10n.resetPasswordDescription,
+                    'Please enter your email or phone number to reset your password.',
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Gap(24.h),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      context.l10n.phoneNumberOrEmailHeading,
+                      'Email or Phone Number',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
@@ -77,7 +76,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                   Gap(4.h),
                   CustomTextFieldWithHeading(
                     textFieldName: 'contact',
-                    hintText: context.l10n.passwordHint,
+                    hintText: 'Enter your email or phone number',
 
                     controller: emailOrPhoneController,
                   ),
@@ -86,7 +85,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
                   ref.watch(forgetPasswordStateProvider)
                       ? const CustomLoaderWidget()
                       : CustomButton(
-                          text: context.l10n.submitButton,
+                          text: 'Submit',
                           onTap: () async {
                             FocusScope.of(context).unfocus();
                             if (_formKey.currentState!.validate()) {

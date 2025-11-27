@@ -3,18 +3,13 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rentalmanagement/features/Property/views/property_details_screen.dart';
-import 'package:rentalmanagement/features/auth/views/login_screen.dart';
-import 'package:rentalmanagement/features/auth/views/reset_password.dart';
-import 'package:rentalmanagement/features/auth/views/sign_up_screen.dart';
-import 'package:rentalmanagement/features/bottom_nav_bar/views/bottom_nav_bar.dart';
-import 'package:rentalmanagement/features/home/models/lease_details_model/lease.dart';
-import 'package:rentalmanagement/features/lease/views/lease_details_screen.dart';
-import 'package:rentalmanagement/features/lease/views/lease_list_screen.dart';
-import 'package:rentalmanagement/features/maintenance/views/add_new_request.dart';
-import 'package:rentalmanagement/features/splash/views/splash_screen.dart';
+
 
 import '../../features/auth/views/create_password.dart';
+import '../../features/auth/views/login_screen.dart';
+import '../../features/auth/views/reset_password.dart';
+import '../../features/auth/views/sign_up_screen.dart';
+import '../../features/auth/views/splash_screen.dart';
 
 class Routes {
   Routes._();
@@ -66,7 +61,7 @@ class AppRouter {
       GoRoute(
         path: Routes.splash,
         pageBuilder: (context, state) =>
-            _platformTransitionPage(state: state, child: const SplashScreen()),
+            _platformTransitionPage(state: state, child: SplashScreen ()),
       ),
 
       /// Login
@@ -89,11 +84,7 @@ class AppRouter {
           child: const ForgotPasswordScreen(),
         ),
       ),
-      GoRoute(
-        path: Routes.bottomNavbar,
-        pageBuilder: (context, state) =>
-            NoTransitionPage(child: const BottomNavBar()),
-      ),
+     
       GoRoute(
         path: Routes.createpass,
         builder: (context, state) {
@@ -101,33 +92,11 @@ class AppRouter {
           return CreatePasswordScreen(contact: contact);
         },
       ),
-      GoRoute(
-        path: Routes.propertyDetails,
-        builder: (context, state) {
-          final id = state.extra as int; // ✅ receive value
-          return PropertyDetailsScreen(propertyId: id);
-        },
-      ),
-      GoRoute(
-        path: Routes.newMaintenanceRequest,
-        builder: (context, state) {
-          return AddNewRequestScreen();
-        },
-      ),
+    
+     
 
-      GoRoute(
-        path: Routes.leaseList,
-        builder: (context, state) {
-          return LeaseListScreen();
-        },
-      ),
-      GoRoute(
-        path: Routes.leaseDetails,
-        builder: (context, state) {
-          final lease = state.extra as Lease;
-          return LeaseDetailsScreen(lease: lease);
-        },
-      ),
+    
+      
 
       // Shell route for BottomNavigationBar
       // ShellRoute(

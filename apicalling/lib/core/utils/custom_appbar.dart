@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rentalmanagement/core/utils/theme_extension.dart';
+
+import 'theme_extension.dart';
+
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

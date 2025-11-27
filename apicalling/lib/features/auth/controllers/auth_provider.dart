@@ -1,7 +1,8 @@
+import 'package:apicalling/features/auth/controllers/auth_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import 'package:rentalmanagement/features/auth/controllers/auth_repo.dart';
-import 'package:rentalmanagement/features/auth/controllers/auth_state_notifier.dart';
+
+import 'auth_state_notifier.dart';
 
 final authServiceProvider = Provider((ref) => AuthService(ref));
 

@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:rentalmanagement/core/constants/app_constants.dart';
+
+import '../constants/app_constants.dart';
+
 
 final languageServiceProvider = Provider((ref) => LanguageService());
 

@@ -1,10 +1,12 @@
+import 'package:apicalling/core/models/common_response.dart';
+import 'package:apicalling/core/services/hive_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import 'package:rentalmanagement/core/models/common_response.dart';
-import 'package:rentalmanagement/core/services/hive_service.dart';
-import 'package:rentalmanagement/features/auth/controllers/auth_provider.dart';
-import 'package:rentalmanagement/features/auth/models/sign_up_model.dart';
+
+import '../models/sign_up_model.dart';
+import 'auth_provider.dart';
+
 
 class LoginStateNotifier extends StateNotifier<bool> {
   final Ref ref;

@@ -1,12 +1,14 @@
 import 'dart:io';
 
+import 'package:apicalling/core/network/api_client.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rentalmanagement/core/constants/app_constants.dart';
-import 'package:rentalmanagement/core/network/api_client.dart';
-import 'package:rentalmanagement/features/auth/models/sign_up_model.dart';
+
+import '../../../core/constants/app_constants.dart';
+import '../models/sign_up_model.dart';
+
 
 abstract class AuthRepo {
   Future<Response> login({required String email, required String password});

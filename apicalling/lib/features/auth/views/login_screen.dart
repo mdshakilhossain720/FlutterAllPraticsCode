@@ -1,3 +1,11 @@
+import 'package:apicalling/core/constants/app_colors.dart';
+import 'package:apicalling/core/constants/app_constants.dart';
+import 'package:apicalling/core/localization/app_languages.dart';
+import 'package:apicalling/core/localization/localization_provider.dart';
+import 'package:apicalling/core/navigation/app_route.dart';
+import 'package:apicalling/core/services/hive_service.dart';
+import 'package:apicalling/core/theme/theme_extensions.dart';
+import 'package:apicalling/core/widgets/logo/app_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,20 +14,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
-import 'package:rentalmanagement/core/constants/app_constants.dart';
-import 'package:rentalmanagement/core/localization/app_languages.dart';
-import 'package:rentalmanagement/core/localization/localization_provider.dart';
-import 'package:rentalmanagement/core/navigation/app_route.dart';
-import 'package:rentalmanagement/core/services/hive_service.dart';
-import 'package:rentalmanagement/core/theme/theme_extensions.dart';
-import 'package:rentalmanagement/core/utils/extensions/localization_extension.dart';
-import 'package:rentalmanagement/core/widgets/buttons/custom_button.dart';
-import 'package:rentalmanagement/core/widgets/custom_loader_widget.dart';
-import 'package:rentalmanagement/core/widgets/custom_textfield.dart';
-import 'package:rentalmanagement/core/widgets/logo/app_logo_widget.dart';
-import 'package:rentalmanagement/features/auth/controllers/auth_provider.dart';
 
+
+import '../../../core/widgets/buttons/custom_button.dart';
+import '../../../core/widgets/custom_loader_widget.dart';
+import '../../../core/widgets/custom_textfield.dart';
+import '../controllers/auth_provider.dart';
 import 'widgets/alreadyaccountwidgets.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -84,7 +84,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      context.l10n.loginTitle,
+                      'Login',
+                     // context.l10n.loginTitle,
                       // "Login",
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
@@ -131,31 +132,35 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ),
                   ],
                 ),
-                Gap(30.h),
-                GestureDetector(
-                  onTap: () {
-                    // _contactController.text = 'tenant9@example.com';
-                    // _passwordController.text = 'secret@123';
-                  },
-                  child: AppLogoWidget(width: 220),
-                ),
+                // Gap(30.h),
+                // GestureDetector(
+                //   onTap: () {
+                //     // _contactController.text = 'tenant9@example.com';
+                //     // _passwordController.text = 'secret@123';
+                //   },
+                //   child: AppLogoWidget(width: 220),
+                // ),
 
                 Gap(30.h),
                 Text(
-                  context.l10n.welcomeBack,
+                  'Welcome Back',
+                  //context.l10n.welcomeBack,
                   style: context.textTheme.headlineSmall,
                 ),
                 Gap(8.h),
                 Text(
-                  context.l10n.signInToAccount,
+                  'Sign in to your account',
+                  //ontext.l10n.signInToAccount,
                   style: context.textTheme.bodySmall,
                 ),
                 Gap(24.h),
 
                 CustomTextFieldWithHeading(
                   textFieldName: 'contact',
-                  hintText: context.l10n.contactHint,
-                  heading: context.l10n.phoneNumberOrEmailHeading,
+                  hintText: 'Email or Phone Number',
+                  
+                  // hintText: context.l10n.contactHint,
+                  // heading: context.l10n.phoneNumberOrEmailHeading,
 
                   controller: _contactController,
                   textInputAction: TextInputAction.next,
@@ -188,8 +193,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ),
                   ),
                   textFieldName: 'password',
-                  heading: context.l10n.passwordHeading,
-                  hintText: context.l10n.passwordHint,
+                  // heading: context.l10n.passwordHeading,
+                  // hintText: context.l10n.passwordHint,
 
                   controller: _passwordController,
 
@@ -207,7 +212,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       context.push(Routes.forgotpass);
                     },
                     child: Text(
-                      context.l10n.forgotPassword,
+                      'Forgot Password',
+                      //context.l10n.forgotPassword,
                       style: context.textTheme.labelLarge!.copyWith(
                         color: AppColors.info,
                       ),
@@ -218,7 +224,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ref.watch(loginStateProvider)
                     ? const CustomLoaderWidget()
                     : CustomButton(
-                        text: context.l10n.loginButton,
+                      text: 'Login',
+
+                    
+                       // text: context.l10n.loginButton,
                         onTap: () async {
                           FocusScope.of(context).unfocus();
                           if (_formkey.currentState!.saveAndValidate()) {
@@ -229,7 +238,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                   password: _passwordController.text,
                                 )
                                 .then((response) {
-                                  if (response.isSuccess) {
+                                  if (response!.isSuccess) {
                                     if (context.mounted) {
                                       context.go(Routes.bottomNavbar);
                                     }
@@ -240,8 +249,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                 Gap(16.h),
                 AlreadyHaveAccountWidget(
-                  title: context.l10n.dontHaveAccountPrefix,
-                  subtitle: context.l10n.signUpLink,
+                  title: 'Don\'t have an account?',
+                  subtitle: 'Sign Up',
                   onTap: () {
                     context.push(Routes.signup);
                   },

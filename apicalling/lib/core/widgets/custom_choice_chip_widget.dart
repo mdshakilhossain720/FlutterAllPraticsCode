@@ -1,6 +1,6 @@
+import 'package:apicalling/core/constants/app_colors.dart';
+import 'package:apicalling/core/utils/theme_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
-import 'package:rentalmanagement/core/utils/theme_extension.dart';
 
 class CustomChoiceChipWidget extends StatelessWidget {
   const CustomChoiceChipWidget({

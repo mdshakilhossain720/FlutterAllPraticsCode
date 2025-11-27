@@ -1,3 +1,13 @@
+import 'package:apicalling/core/constants/app_colors.dart';
+import 'package:apicalling/core/constants/app_constants.dart';
+import 'package:apicalling/core/navigation/app_route.dart';
+import 'package:apicalling/core/utils/global_function.dart';
+import 'package:apicalling/core/utils/theme_extension.dart';
+import 'package:apicalling/core/widgets/app_bar/app_bar_widget.dart';
+import 'package:apicalling/core/widgets/buttons/custom_button.dart';
+import 'package:apicalling/core/widgets/custom_loader_widget.dart';
+import 'package:apicalling/core/widgets/custom_textfield.dart';
+import 'package:apicalling/features/auth/controllers/auth_provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -7,21 +17,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
-import 'package:rentalmanagement/core/constants/app_constants.dart';
-import 'package:rentalmanagement/core/navigation/app_route.dart';
-import 'package:rentalmanagement/core/utils/extensions/localization_extension.dart';
-import 'package:rentalmanagement/core/utils/global_function.dart';
-import 'package:rentalmanagement/core/utils/theme_extension.dart';
-import 'package:rentalmanagement/core/utils/url_launcher.dart';
-import 'package:rentalmanagement/core/widgets/app_bar/app_bar_widget.dart';
-import 'package:rentalmanagement/core/widgets/buttons/custom_button.dart';
-import 'package:rentalmanagement/core/widgets/custom_loader_widget.dart';
-import 'package:rentalmanagement/core/widgets/custom_textfield.dart';
-import 'package:rentalmanagement/core/widgets/logo/app_logo_widget.dart';
-import 'package:rentalmanagement/features/auth/controllers/auth_provider.dart';
-import 'package:rentalmanagement/features/auth/models/sign_up_model.dart';
 
+
+import '../../../core/widgets/logo/app_logo_widget.dart';
+import '../models/sign_up_model.dart';
 import 'widgets/alreadyaccountwidgets.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
@@ -53,7 +52,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: context.l10n.signUpTitle),
+      appBar: AppBarWidget(title: 'Create Account'),
       body: SingleChildScrollView(
         child: FormBuilder(
           key: _formkey,
@@ -64,24 +63,23 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Gap(16.h),
-                AppLogoWidget(width: 220),
+              //  AppLogoWidget(width: 220),
 
                 Gap(24.h),
                 Text(
-                  context.l10n.createAccountTitle,
+                  'fggff',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 Gap(8.h),
                 Text(
-                  context.l10n.joinPlatformDescription,
+                  'Please fill the form to create an account',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 Gap(24.h),
 
                 CustomTextFieldWithHeading(
                   textFieldName: 'name',
-                  hintText: context.l10n.nameHint,
-                  heading: context.l10n.nameHeading,
+                 
                   controller: _nameController,
                   keyboardType: TextInputType.name,
                   validator: FormBuilderValidators.compose([
@@ -95,8 +93,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
                 CustomTextFieldWithHeading(
                   textFieldName: 'email',
-                  heading: context.l10n.emailHeading,
-                  hintText: context.l10n.emailHint,
+               
                   controller: _emailController,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
@@ -111,8 +108,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
                 CustomTextFieldWithHeading(
                   textFieldName: 'phone',
-                  heading: context.l10n.phoneHeading,
-                  hintText: context.l10n.phoneHint,
+                
                   controller: _phoneController,
                   keyboardType: TextInputType.phone,
                   textInputAction: TextInputAction.next,
@@ -146,8 +142,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                     ),
                   ),
                   textFieldName: 'password',
-                  heading: context.l10n.passwordHeading,
-                  hintText: context.l10n.passwordHint,
+                  hintText: '************',
                   controller: _passwordController,
                   textInputAction: TextInputAction.done,
                   validator: FormBuilderValidators.compose([
@@ -156,7 +151,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                     ),
                     FormBuilderValidators.minLength(
                       8,
-                      errorText: context.l10n.passwordMinLengthError,
+                      errorText: 'Password must be at least 8 characters long', 
                     ),
                   ]),
                 ),
@@ -184,42 +179,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                         shape: CircleBorder(), // makes it round
                       ),
                     ),
-                    Gap(10.w),
-                    RichText(
-                      text: TextSpan(
-                        style: context.textTheme.bodySmall,
-                        children: [
-                          TextSpan(text: context.l10n.agreeToPrefix),
-                          TextSpan(
-                            text: context.l10n.termsOfUseLink,
-                            style: context.textTheme.bodySmall?.copyWith(
-                              color: AppColors.primaryColor,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.underline,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                customLaunchUrl(
-                                  AppConstants.termsAndConditions,
-                                );
-                              },
-                          ),
-                          TextSpan(text: context.l10n.andSuffix),
-                          TextSpan(
-                            text: context.l10n.privacyPolicyLink,
-                            style: context.textTheme.bodySmall?.copyWith(
-                              color: AppColors.primaryColor,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.underline,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                customLaunchUrl(AppConstants.privacyPolicy);
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
+                
+                  
                   ],
                 ),
 
@@ -227,14 +188,14 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 ref.watch(registrationStateProvider)
                     ? const CustomLoaderWidget()
                     : CustomButton(
-                        text: context.l10n.createAccountButton,
+                        text: 'Sign Up',
                         onTap: () {
                           FocusScope.of(context).unfocus();
                           if (_formkey.currentState!.validate()) {
                             if (!isCheckTerm) {
                               GlobalFunction.showCustomSnackbar(
                                 message:
-                                    context.l10n.termsAgreementRequiredMessage,
+                                    'You must agree to the terms and conditions',
                                 isSuccess: false,
                               );
                               return;
@@ -261,13 +222,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                         },
                       ),
                 Gap(16.h),
-                AlreadyHaveAccountWidget(
-                  title: context.l10n.alreadyHaveAccountPrefix,
-                  subtitle: context.l10n.signInLink,
-                  onTap: () {
-                    context.go(Routes.login);
-                  },
-                ),
+               
               ],
             ),
           ),

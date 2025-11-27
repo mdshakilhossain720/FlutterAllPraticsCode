@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rentalmanagement/core/constants/app_colors.dart';
+
+import '../../constants/app_colors.dart';
+
 
 class SimpleButton extends StatelessWidget {
   final String text;
