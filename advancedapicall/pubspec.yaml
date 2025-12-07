@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_dotenv: ^6.0.0
   dartz: ^0.10.1
+  gap: ^3.0.1
+  shimmer_animation: ^2.2.2+1
+  dio: ^5.9.0
+  dio_handler: ^0.0.2
 
 dev_dependencies:
   flutter_test:
